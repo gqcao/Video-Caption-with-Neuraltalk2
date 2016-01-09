@@ -1,0 +1,4 @@
+This is a code release of captioning videos using Neuraltalk2. We provide a way to extract the deep image feature of VGG-16, and detect shot boundaries using the feature. We annotate the key frames, and return the captions to the video sequence.
+
+Guanqun CAO
+09/01/2016
