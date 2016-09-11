@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #ffmpeg -ss 00:00:00 -i ~/wrk/neuraltalk2/data/granada.mp4 -t 00:05:00 -vcodec copy -acodec copy ~/wrk/neuraltalk2/data/granada_s.mp4 
-#ffmpeg -ss 00:00:00 -t 00:05:00 -i ~/wrk/neuraltalk2/data/santa.mp4 -r 5.0 ~/wrk/neuraltalk2/data/santa/img/s%4d.jpg
-ffmpeg -i ~/wrk/neuraltalk2/data/santa.mp4 -vf subtitles=santa.srt out.mp4
+ffmpeg -ss 00:00:00 -t 00:00:30 -i /homeappl/home/gcao/tmp/Video-Caption/data/test.mp4 -r 5.0 /homeappl/home/gcao/tmp/Video-Caption/data/santa/img/s%4d.jpg
+#ffmpeg -i /homeappl/home/gcao/tmp/Video-Caption/data/ test.mp4 -vf subtitles=santa.srt out.mp4
 
 #ffmpeg -i ~/wrk/neuraltalk2/data/granada_s.mp4 -vf subtitles=granada.srt ~/wrk/neuraltalk2/data/granada_ss.mp4
 

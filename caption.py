@@ -3,12 +3,11 @@ from numpy import *
 import sys
 from scipy import misc
 from scipy import ndimage
-sys.path.insert(0, '/homeappl/home/gcao/fa/misc')
 import dist_metrics
 from fileproc import loadstr, writestr
 
 # Change the root path to your directory
-root_path = '/wrk/gcao/neuraltalk2/'
+#root_path = '/homeappl/home/gcao/tmp/Video-Caption/'
 
 def processImg(img):
     img = misc.imread(img)
@@ -24,7 +23,7 @@ def processImg(img):
     return hist 
  
 def genKeyframes():
-    Thresh = .2
+    Thresh = .2 # We pre-define the threhold to differentiate the key frames.
     dataDir = root_path + 'data/santa/img/' 
     # Get all image frames
     from os import listdir
@@ -41,17 +40,17 @@ def genKeyframes():
             keyFrames.append(f)
             hist_ref = hist # Use the first frame of a shot as ref..
     print shape(keyFrames)
-    writestr(root_path + 'info/keyframes_santa.list', keyFrames)
+    writestr(root_path + 'keyframes_santa.list', keyFrames)
 
 def copyKeyframes():
     from shutil import copyfile
-    keys = loadstr(root_path + 'info/keyframes_santa.list')
+    keys = loadstr(root_path + 'keyframes_santa.list')
     for k in keys:
         copyfile(root_path + 'data/santa/img/'+k, root_path + 'data/santa/key/'+k)
 
 def parseOutput():
     srt_dict = {}
-    lst = loadstr(root_path + 'info/eval.out')
+    lst = loadstr(root_path + 'eval.out')
     for l in lst:
         if '.jpg' in l:
             img_orig = l.split()[1][1:-1]
@@ -61,7 +60,7 @@ def parseOutput():
     return srt_dict
 
 def genSrt(srt_dict):
-    keys = loadstr(root_path + 'info/keyframes_santa.list')
+    keys = loadstr(root_path + 'keyframes_santa.list')
     lines = []
     lines.append(1)
     num = double(keys[0][1:5]) -1 
@@ -84,13 +83,19 @@ def genSrt(srt_dict):
     end_t = hour + ':' + minute + ':' + second + '25'
     lines.append(start_t + ' --> ' + end_t)
     lines.append(srt)
-    writestr(root_path + 'info/santa.srt', lines)
+    writestr(root_path + 'santa.srt', lines)
     
 def main():
-    #genKeyframes()
-    #copyKeyframes()
-    srt_dict = parseOutput()
-    genSrt(srt_dict)
+    global root_path
+    root_path = sys.argv[1]
+    task = sys.argv[2]
+    if task == 'genKeyframes' 
+        genKeyframes()
+    elif task == 'copyKeyframes'
+        copyKeyframes()
+    elif task == 'genSrt'
+        srt_dict = parseOutput()
+        genSrt(srt_dict)
 
 if __name__=='__main__':
     main()
