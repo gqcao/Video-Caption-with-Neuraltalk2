@@ -7,6 +7,7 @@ sys.path.insert(0, '/homeappl/home/gcao/fa/misc')
 import dist_metrics
 from fileproc import loadstr, writestr
 
+# Change the root path to your directory
 root_path = '/wrk/gcao/neuraltalk2/'
 
 def processImg(img):
