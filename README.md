@@ -1,7 +1,7 @@
 # Video Caption with Neuraltalk2 
 ### General introduction
 This is a code release of captioning videos using Neuraltalk2. We provide a way to extract the deep image feature of VGG-16, and detect shot boundaries using the feature. We can also finetune the MS-COCO model, annotate the key frames, and return the captions to the video sequence. A sample output can be found at 
-<a href="https://youtu.be/FmSsek5luHk" target="_blank"><img src="https://youtu.be/FmSsek5luHk/0.jpg" alt="Test captioning video by Neuraltalk2" width="240" height="180" border="10" /></a>
+<a href="https://youtu.be/FmSsek5luHk" target="_blank"><img src="https://www.youtube.com/watch?v=FmSsek5luHk/0.jpg" alt="Test captioning video by Neuraltalk2" width="240" height="180" border="10" /></a>
 
 ### Required libraries:
 - Caffe: https://github.com/BVLC/caffe
