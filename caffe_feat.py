@@ -3,11 +3,15 @@ from numpy import *
 import sys
 import os
 import pandas as pd
+#------------------------------------------------#
 # Make sure that caffe is on the python path:
 caffe_root = '/wrk/gcao/caffe/'  # this file is expected to be in {caffe_root}/examples
+# change the path below to the directory of your video frames.
+input_path = '/homeappl/home/gcao/tmp/Video-Caption/data/santa/'
+#------------------------------------------------#
 sys.path.insert(0, caffe_root + 'python')
 import caffe
-sys.path.insert(0, '/homeappl/home/gcao/fa/misc/')
+#sys.path.insert(0, '/homeappl/home/gcao/fa/misc/')
 from fileproc import loadstr, writestr 
 
 def setup():
@@ -64,8 +68,6 @@ def loadFiles():
     return sorted(img_files)
 
 def main():
-    global input_path 
-    input_path = '/wrk/gcao/neuraltalk2/data/santa/'
     img_files = loadFiles()
     net, transformer = setup()
     feats = extract(img_files, net, transformer)
