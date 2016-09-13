@@ -3,12 +3,10 @@
 #   (use "git add/rm <file>..." to update what will be committed)
 #   (use "git checkout -- <file>..." to discard changes in working directory)
 #
-#	modified:   README.md
-#	deleted:    caplog.txt
-#	deleted:    caplog.txt_
-#	deleted:    extractFrames.sh
-#	deleted:    keyframes_santa.list
-#	deleted:    santa.srt
+#	deleted:    .gpu.sh.swp
+#	deleted:    dist_metrics.pyc
+#	deleted:    fileproc.pyc
 #	modified:   status.txt
+#	deleted:    train.lua
 #
 no changes added to commit (use "git add" and/or "git commit -a")
