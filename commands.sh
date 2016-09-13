@@ -1,23 +1,31 @@
 #!/bin/bash
 
+# Extract frames from the video.
 #ffmpeg -ss 00:00:00 -t 00:00:30 -i /homeappl/home/gcao/tmp/Video-Caption/data/test.mp4 -r 5.0 /homeappl/home/gcao/tmp/Video-Caption/data/santa/img/s%4d.jpg
-#ffmpeg -i /homeappl/home/gcao/tmp/Video-Caption/data/ test.mp4 -vf subtitles=santa.srt out.mp4
 
-
-cd /homeappl/home/gcao/local/scripts
-source gpu.sh
 
 # Extract feature..
-cd /homeappl/home/gcao/tmp/Video-Caption 
-srun ./caffe_feat.py
+#cd /homeappl/home/gcao/local/scripts
+#source gpu.sh
+
+#cd /homeappl/home/gcao/tmp/Video-Caption 
+#srun ./caffe_feat.py
 
 # Activate Torch
 #. /homeappl/home/gcao/wrk/torch/install/bin/torch-activate
 
 # Do caption generation
-#cd /wrk/gcao/neuraltalk2/ 
-#th eval.lua -model /wrk/gcao/neuraltalk2/model/model_coco.t7 -image_folder /wrk/gcao/neuraltalk2/data/santa/key  -num_images -1
+#cd /wrk/gcao/neuraltalk2
+#th eval.lua -model /wrk/gcao/neuraltalk2/model/model_coco.t7 -image_folder  /homeappl/home/gcao/tmp/Video-Caption/data/santa/key  -num_images -1 > caplog.txt
 
+# Find the key frames from the video
+#python caption.py '/homeappl/home/gcao/tmp/Video-Caption/'  'genKeyframes'
+
+# Generate the srt file 
+#python caption.py '/homeappl/home/gcao/tmp/Video-Caption/'  'genSrt'
+
+# Attach the caption to the original video
+ffmpeg -i /homeappl/home/gcao/tmp/Video-Caption/data/test.mp4 -vf subtitles=santa.srt out.mp4
 #srun ./crawl.py
 
 # training

@@ -50,7 +50,7 @@ def copyKeyframes():
 
 def parseOutput():
     srt_dict = {}
-    lst = loadstr(root_path + 'eval.out')
+    lst = loadstr(root_path + 'caplog.txt')
     for l in lst:
         if '.jpg' in l:
             img_orig = l.split()[1][1:-1]
@@ -89,11 +89,10 @@ def main():
     global root_path
     root_path = sys.argv[1]
     task = sys.argv[2]
-    if task == 'genKeyframes' 
+    if task == 'genKeyframes': 
         genKeyframes()
-    elif task == 'copyKeyframes'
         copyKeyframes()
-    elif task == 'genSrt'
+    elif task == 'genSrt':
         srt_dict = parseOutput()
         genSrt(srt_dict)
 
