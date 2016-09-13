@@ -1,4 +1,3 @@
-####Note. Due to the maintenance of my computer, the update of the project has not been finished. 
 # Video Caption with Neuraltalk2 
 ## General information 
 This is a code release of captioning videos using [Neuraltalk2](https://github.com/karpathy/neuraltalk2/). We provide a way to extract the deep image feature of VGG-16, and detect shot boundaries using the feature. We can also finetune the MS-COCO model, annotate the key frames, and return the captions to the video sequence. A sample output can be found 
@@ -63,3 +62,4 @@ Finally, we can attach the caption to the video and show the result in 'capped.m
 ```
 ffmpeg -i YOUR_WORKING_PATH/data/test.mp4 -vf subtitles=santa.srt capped.mp4
 ```
+Voila! Now you can caption your videos with neuraltalk2. Note, the subtitles you generated come from the pre-trained model provided by Karpathy. You can follow their instruction to train new language models. In the future, we may have an update on this with our model.
