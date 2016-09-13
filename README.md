@@ -19,7 +19,7 @@ $ ffmpeg -ss 00:00:00 -t 00:00:30 -i YOUR_WORKING_DIRECTORY/data/test.mp4 -r 5.0
 ```
 
 ### Extract deep features (VGG-16) from the video frames that you just generated.
-Besides the [caffe](http://caffe.berkeleyvision.org/) package, we use one the pre-trained model called [VGG-16](http://www.robots.ox.ac.uk/~vgg/research/very_deep/). Essentially, it is a topology including a very deep network with 16 layers. 
+Besides the [caffe](http://caffe.berkeleyvision.org/) package, we use one of the pre-trained models called [VGG-16](http://www.robots.ox.ac.uk/~vgg/research/very_deep/). Essentially, it is a topology including a very deep network with 16 layers. 
 You should download the [weights](http://www.robots.ox.ac.uk/~vgg/software/very_deep/caffe/VGG_ILSVRC_16_layers.caffemodel) and [layer configuration](https://gist.githubusercontent.com/ksimonyan/211839e770f7b538e2d8/raw/0067c9b32f60362c74f4c445a080beed06b07eb3/VGG_ILSVRC_16_layers_deploy.prototxt) under your Caffe directory.
 
 Now, you can extract the visual feature from the video frames. We provide a code called 'caffe_feat.py' for that. You need to open the file and change the 'caffe_root' and 'input_path' to your own directory. Then, you can run the following script.
